@@ -1,7 +1,6 @@
+# Build artefacts only — do not ignore Smart-SIP-Phone-Hybrid / Icon512.png here:
+# flatpak-builder applies this .gitignore when extracting release archives.
 .flatpak-builder/
 _flatpak-build/
 _flatpak-repo/
 *.flatpak
-Smart-SIP-Phone-Hybrid
-Icon512.png
-extra-libs/
