@@ -1,0 +1,60 @@
+app-id: de.ednt.SmartSIPPhone
+runtime: org.gnome.Platform
+runtime-version: '50'
+sdk: org.gnome.Sdk
+command: smart-sip-phone-launch
+
+finish-args:
+  - --share=network
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --device=all
+  - --filesystem=home
+  - --talk-name=org.freedesktop.secrets
+  - --env=WEBKIT_DISABLE_DMABUF_RENDERER=1
+
+modules:
+  - name: alsa-config
+    buildsystem: simple
+    build-commands:
+      - install -Dm644 default.conf /app/etc/alsa/conf.d/default.conf
+    sources:
+      - type: file
+        path: alsa-config/conf.d/default.conf
+
+  - name: smart-sip-phone
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 Smart-SIP-Phone-Hybrid /app/bin/Smart-SIP-Phone-Hybrid
+      - install -Dm755 smart-sip-phone-launch.sh /app/bin/smart-sip-phone-launch
+      - install -Dm644 de.ednt.SmartSIPPhone.desktop /app/share/applications/de.ednt.SmartSIPPhone.desktop
+      - install -Dm644 de.ednt.SmartSIPPhone.metainfo.xml /app/share/metainfo/de.ednt.SmartSIPPhone.metainfo.xml
+      - |
+        for size in 48 64 128 256 512; do
+          install -Dm644 Icon512.png /app/share/icons/hicolor/${size}x${size}/apps/de.ednt.SmartSIPPhone.png
+        done
+        gtk-update-icon-cache -f -t /app/share/icons/hicolor || true
+      - |
+        for libdir in /usr/lib/x86_64-linux-gnu /usr/lib64 /usr/lib; do
+          if [ -f "${libdir}/libcurl.so.4" ]; then
+            install -Dm755 "${libdir}/libcurl.so.4" /app/lib/libcurl.so.4
+            ln -sf libcurl.so.4 /app/lib/libcurl.so
+            break
+          fi
+        done
+        shopt -s nullglob
+        for lib in libnl-3.so.200 libnl-3.so.200.*; do
+          if [ -e "$lib" ]; then
+            install -Dm755 "$lib" "/app/lib/$(basename "$lib")"
+          fi
+        done
+    sources:
+      - type: git
+        url: https://github.com/ednt/smart-sip-phone-hybird-flathub.git
+        tag: v1.7.0
+        commit: 5f2e4a39679e060e89df13b4e34e11aefa9d8ee9
+      - type: archive
+        url: https://github.com/ednt/smart-sip-phone-hybird-flathub/releases/download/v1.7.0/smart-sip-phone-hybrid-1.7.0-flathub.tar.xz
+        sha256: 97ddaede78f7f39a641ece3f1bb09c94f8c9ed232730eae4f8cad69acf669edd
