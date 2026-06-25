@@ -51,10 +51,12 @@ modules:
           fi
         done
     sources:
-      - type: git
-        url: https://github.com/ednt/smart-sip-phone-hybird-flathub.git
-        tag: v1.7.0
-        commit: 5f2e4a39679e060e89df13b4e34e11aefa9d8ee9
+      - type: file
+        path: smart-sip-phone-launch.sh
+      - type: file
+        path: de.ednt.SmartSIPPhone.desktop
+      - type: file
+        path: de.ednt.SmartSIPPhone.metainfo.xml
       - type: archive
         url: https://github.com/ednt/smart-sip-phone-hybird-flathub/releases/download/v1.7.0/smart-sip-phone-hybrid-1.7.0-flathub.tar.xz
-        sha256: 97ddaede78f7f39a641ece3f1bb09c94f8c9ed232730eae4f8cad69acf669edd
+        sha256: b07666e517e5e89d40652d155e256e573f4bec488b48de5b734c5b3fe0613aa7
