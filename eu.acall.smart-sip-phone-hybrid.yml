@@ -38,6 +38,16 @@ modules:
           echo "ERROR: staged ip binary missing (extra-bin/ip)" >&2
           exit 1
         fi
+        for audio_bin in aplay arecord; do
+          if [ -x "extra-bin/${audio_bin}" ]; then
+            install -Dm755 "extra-bin/${audio_bin}" "/app/bin/${audio_bin}"
+          elif [ -x "${audio_bin}" ]; then
+            install -Dm755 "${audio_bin}" "/app/bin/${audio_bin}"
+          else
+            echo "ERROR: staged ${audio_bin} binary missing (extra-bin/${audio_bin})" >&2
+            exit 1
+          fi
+        done
       - install -Dm644 eu.acall.smart-sip-phone-hybrid.desktop /app/share/applications/eu.acall.smart-sip-phone-hybrid.desktop
       - install -Dm644 eu.acall.smart-sip-phone-hybrid.metainfo.xml /app/share/metainfo/eu.acall.smart-sip-phone-hybrid.metainfo.xml
       - |
@@ -90,6 +100,6 @@ modules:
       - type: file
         path: eu.acall.smart-sip-phone-hybrid.metainfo.xml
       - type: archive
-        url: https://github.com/ednt/smart-sip-phone-hybird-flathub/releases/download/v1.7.0/smart-sip-phone-hybrid-1.7.0-flathub.tar.xz
-        sha256: 35780fe9fcf26c3fadd7a34784686ba6bac25f5b2e33e995f1ca095b94619a49
+        url: https://github.com/ednt/smart-sip-phone-hybrid-flathub/releases/download/v1.7.0/smart-sip-phone-hybrid-1.7.0-flathub.tar.xz
+        sha256: b0c505879fd06ff4eac0fe6cfbbe1bf408aad8e9bbadfd00b21ca00940a503a2
         strip-components: 0

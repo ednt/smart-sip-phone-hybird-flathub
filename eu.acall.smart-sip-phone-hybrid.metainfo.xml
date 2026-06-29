@@ -4,7 +4,7 @@
   <launchable type="desktop-id">eu.acall.smart-sip-phone-hybrid.desktop</launchable>
   <name>Smart-SIP-Phone</name>
   <summary>The next-generation SIP client by EDNT</summary>
-  <summary xml:lang="de">Der SIP Client der nächsten Generation von EDNT</summary>
+  <summary xml:lang="de">Der SIP Client der nächsten Generation von acall Technologies GmbH</summary>
   <description>
     <p>Smart-SIP-Phone is a modern SIP softphone with integrated web-based UI.</p>
   </description>
@@ -27,6 +27,6 @@
   <project_license>LicenseRef-proprietary</project_license>
   <url type="homepage">https://www.ednt.de</url>
   <releases>
-    <release version="1.7.0" date="2026-06-26"/>
+    <release version="1.7.0" date="2026-06-29"/>
   </releases>
 </component>
