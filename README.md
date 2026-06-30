@@ -17,12 +17,8 @@ cd smart-sip-phone-hybrid-flathub
 git checkout vX.Y.Z   # optional;
 ```
 
-## Flathub submission
-
-x86_64 only. The Flathub PR must include **`flathub.json`** next to the manifest
-(see [Flathub requirements](https://docs.flathub.org/docs/for-app-authors/requirements#flathubjson)).
-
 ## Build
+
 ```bash
 flatpak-builder \
   --force-clean \
