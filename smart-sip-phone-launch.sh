@@ -2,9 +2,10 @@
 set -e
 
 PROGRAM_NAME="Smart-SIP-Phone-Hybrid"
+APP_DATA_DIR="${XDG_DATA_HOME:-${HOME}/.local/share}/${PROGRAM_NAME}"
 
-mkdir -p "${HOME}/.${PROGRAM_NAME}"
-touch "${HOME}/.${PROGRAM_NAME}/extract_on_next_start"
+mkdir -p "$APP_DATA_DIR"
+touch "${APP_DATA_DIR}/extract_on_next_start"
 export WEBKIT_DISABLE_DMABUF_RENDERER="${WEBKIT_DISABLE_DMABUF_RENDERER:-1}"
 export GDK_BACKEND="${GDK_BACKEND:-x11}"
 export PATH="/app/bin:${PATH}"
