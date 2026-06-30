@@ -19,6 +19,10 @@ git checkout vX.Y.Z   # optional;
 
 ## Build
 
+x86_64 only (`only-arches` in manifest). The release archive contains binaries and
+all install files (launch script, desktop, metainfo, alsa-config); the Flathub
+submission needs only `eu.acall.smart-sip-phone-hybrid.yml`.
+
 ```bash
 flatpak-builder \
   --force-clean \

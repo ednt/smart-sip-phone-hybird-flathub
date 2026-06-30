@@ -16,6 +16,9 @@
     <category>Network</category>
     <category>Telephony</category>
   </categories>
+  <supports>
+    <arch>x86_64</arch>
+  </supports>
   <keywords>
     <keyword>sip</keyword>
     <keyword>voip</keyword>
