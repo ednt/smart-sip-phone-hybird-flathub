@@ -14,8 +14,18 @@ cd smart-sip-phone-hybrid-flathub
 
 ## Optional: checkout specific release
 ```bash
-git checkout vX.Y.Z   # optional;
+git checkout vX.Y.Z-flathub.N
 ```
+
+## Flathub archive revisions (no retag)
+
+| Revision | Archiv-Dateiname | Ship-Repo-Tag |
+|----------|------------------|---------------|
+| 1 | `smart-sip-phone-hybrid-X.Y.Z-flathub-1.tar.xz` | `vX.Y.Z-flathub.1` |
+| N | `smart-sip-phone-hybrid-X.Y.Z-flathub-N.tar.xz` | `vX.Y.Z-flathub.N` |
+
+Ältere Releases ohne Nummer (`…-flathub.tar.xz`, Tag `vX.Y.Z`) zählen als Revision 1.
+`build/build_flatpak.bash` wählt die nächste freie Revision automatisch.
 
 ## Build
 
