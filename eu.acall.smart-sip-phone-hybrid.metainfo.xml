@@ -7,18 +7,25 @@
   <summary xml:lang="de">Der SIP Client der nächsten Generation von acall Technologies GmbH</summary>
   <description>
     <p>Smart-SIP-Phone is a modern SIP softphone with integrated web-based UI.</p>
+    <p xml:lang="de">Smart-SIP-Phone ist ein moderner SIP-Softphone mit integrierter Web-Oberfläche.</p>
   </description>
-  <description xml:lang="de">
-    <p>Smart-SIP-Phone ist ein moderner SIP-Softphone mit integrierter Web-Oberfläche.</p>
-  </description>
+  <screenshots>
+    <screenshot type="default">
+      <image type="source" width="1280" height="720">https://raw.githubusercontent.com/ednt/smart-sip-phone-hybrid-flathub/main/1_ssp_flatpak_light_1280x720.png</image>
+      <caption>Main window (light theme)</caption>
+      <caption xml:lang="de">Hauptfenster (helles Design)</caption>
+    </screenshot>
+    <screenshot>
+      <image type="source" width="1280" height="720">https://raw.githubusercontent.com/ednt/smart-sip-phone-hybrid-flathub/main/2_ssp_flatpak_dark_1280x720.png</image>
+      <caption>Main window (dark theme)</caption>
+      <caption xml:lang="de">Hauptfenster (dunkles Design)</caption>
+    </screenshot>
+  </screenshots>
   <icon type="stock">eu.acall.smart-sip-phone-hybrid</icon>
   <categories>
     <category>Network</category>
     <category>Telephony</category>
   </categories>
-  <supports>
-    <arch>x86_64</arch>
-  </supports>
   <keywords>
     <keyword>sip</keyword>
     <keyword>voip</keyword>
@@ -29,7 +36,8 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>LicenseRef-proprietary</project_license>
   <url type="homepage">https://www.ednt.de</url>
+  <content_rating type="oars-1.1"/>
   <releases>
-    <release version="1.7.0" date="2026-06-30"/>
+    <release version="1.7.0" date="2026-07-01"/>
   </releases>
 </component>
