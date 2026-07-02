@@ -17,15 +17,18 @@ cd smart-sip-phone-hybrid-flathub
 git checkout vX.Y.Z-flathub.N
 ```
 
-## Flathub archive revisions (no retag)
+## Validierung (Flathub-CI)
 
-| Revision | Archiv-Dateiname | Ship-Repo-Tag |
-|----------|------------------|---------------|
-| 1 | `smart-sip-phone-hybrid-X.Y.Z-flathub-1.tar.xz` | `vX.Y.Z-flathub.1` |
-| N | `smart-sip-phone-hybrid-X.Y.Z-flathub-N.tar.xz` | `vX.Y.Z-flathub.N` |
+Im Stack-Repo vor Ship oder Flathub-PR:
 
-Ältere Releases ohne Nummer (`…-flathub.tar.xz`, Tag `vX.Y.Z`) zählen als Revision 1.
-`build/build_flatpak.bash` wählt die nächste freie Revision automatisch.
+```bash
+./build/validate_flatpak.bash              # AppStream + Manifest lint
+./build/validate_flatpak.bash --full       # zusätzlich Build + repo lint
+./build/validate_flatpak.bash --ship-repo  # gegen GitHub Ship-Repo main
+```
+
+Entspricht [Flathub Submission](https://docs.flathub.org/docs/for-app-authors/submission) und
+[flatpak-builder-lint](https://docs.flathub.org/docs/for-app-authors/linter).
 
 ## Build
 

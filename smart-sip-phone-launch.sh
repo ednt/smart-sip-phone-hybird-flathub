@@ -26,10 +26,13 @@ export GDK_BACKEND="${GDK_BACKEND:-x11}"
 export PATH="/app/bin:${PATH}"
 export LD_LIBRARY_PATH="/app/lib${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
 
-# PipeWire/PulseAudio: Host-Socket fuer ALSA-Geraeteliste (aplay/arecord)
+# PipeWire/PulseAudio: Host-Sockets fuer ALSA (aplay/arecord) und pw-mon (Geraete hotplug)
 runtime_dir="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
 if [ -S "${runtime_dir}/pulse/native" ]; then
   export PULSE_SERVER="unix:${runtime_dir}/pulse/native"
+fi
+if [ -d "${runtime_dir}/pipewire-0" ]; then
+  export PIPEWIRE_RUNTIME_DIR="${runtime_dir}/pipewire-0"
 fi
 export ALSA_CONFIG_PATH="${ALSA_CONFIG_PATH:-/usr/share/alsa/alsa-flatpak.conf}"
 unset ALSA_CONFIG_DIR
